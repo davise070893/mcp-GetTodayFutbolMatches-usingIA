@@ -96,11 +96,14 @@ EQUIPOS_GRANDES = [
 # Ejecutar servidor MCP
 python run_server.py
 
-# Probar el scraper
+# Probar el scraper con todas las fuentes
 python test_scraper.py
 
 # Probar una fuente específica
 python test_scraper.py "https://www.espn.com/soccer/fixtures"
+
+# Menú interactivo para probar fuentes (recomendado)
+python probar_nueva_fuente.py
 ```
 
 ## 🛠️ Herramientas MCP disponibles
@@ -184,11 +187,14 @@ uv run black src/
 # Verificar tipos con mypy
 uv run mypy src/
 
-# Probar scraper completo
+# Probar scraper completo (todas las fuentes)
 uv run python test_scraper.py
 
 # Probar fuente específica
 uv run python test_scraper.py "https://www.espn.com/soccer/fixtures"
+
+# Menú interactivo para probar fuentes
+uv run python probar_nueva_fuente.py
 
 # Ejecutar servidor MCP
 uv run python run_server.py
