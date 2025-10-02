@@ -216,6 +216,15 @@ mcp-partidos/
 
 ## 🌐 Fuentes soportadas
 
+### Fuentes Activas
+- **La Pelotona** - Partidos con horarios y canales de TV en español
+- **ESPN Deportes** - Calendario completo de fútbol internacional
+- **FlashScore** - Resultados y fixtures en vivo de todas las ligas
+- **SofaScore** - Estadísticas detalladas y partidos en tiempo real
+- **LiveScore** - Resultados en vivo y fixtures actualizados
+- **FotMob** - Partidos, noticias y análisis de fútbol
+
+### Fuentes Configuradas (disponibles para activar)
 - **ESPN** - Cobertura internacional completa
 - **Goal.com** - Noticias y fixtures globales  
 - **BBC Sport** - Deportes británicos y europeos

@@ -7,8 +7,18 @@ from typing import List, Dict, Any
 # URLs de fuentes de partidos de fútbol
 # Puedes modificar esta lista fácilmente para agregar o quitar fuentes
 FUENTES_PARTIDOS: List[str] = [
-    # ESPN - Cobertura internacional completa
+    # La Pelotona - Partidos con horarios y canales
     "https://www.lapelotona.com/us-en/soccer-games/",
+    # ESPN Deportes - Calendario de fútbol
+    "https://www.espndeportes.espn.com/futbol/calendario",
+    # FlashScore - Resultados y fixtures en vivo
+    "https://www.flashscore.com/football/",
+    # SofaScore - Estadísticas y partidos en vivo
+    "https://www.sofascore.com/football",
+    # LiveScore - Resultados en tiempo real
+    "https://www.livescore.com/en/football/",
+    # FotMob - Partidos y noticias de fútbol
+    "https://www.fotmob.com/matches",
 ]
 
 # Configuración específica para cada fuente
@@ -120,6 +130,87 @@ CONFIGURACION_FUENTES: Dict[str, Dict[str, Any]] = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
         },
         "timeout": 10
+    },
+    
+    "espndeportes.espn.com": {
+        "selectores": {
+            "partido": ".Scoreboard, .Table__TR, .event",
+            "equipo_local": ".team-home .team-name, .home-team",
+            "equipo_visitante": ".team-away .team-name, .away-team",
+            "hora": ".ScoreCell__Time, .game-time, .date-time",
+            "liga": ".ScoreboardScoreCell__League, .league-name",
+            "canal": ".broadcast"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "es-ES,es;q=0.9,en;q=0.8"
+        },
+        "timeout": 15
+    },
+    
+    "flashscore.com": {
+        "selectores": {
+            "partido": ".event__match, .leagues--static__event",
+            "equipo_local": ".event__participant--home",
+            "equipo_visitante": ".event__participant--away",
+            "hora": ".event__time",
+            "liga": ".event__title--type",
+            "canal": ".tv-icon"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9"
+        },
+        "timeout": 15
+    },
+    
+    "sofascore.com": {
+        "selectores": {
+            "partido": ".event, .Box",
+            "equipo_local": ".participant-home, .homeParticipant",
+            "equipo_visitante": ".participant-away, .awayParticipant",
+            "hora": ".time, .eventTime",
+            "liga": ".tournament-name, .tournamentHeader",
+            "canal": ".tv-channel"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+        },
+        "timeout": 15
+    },
+    
+    "livescore.com": {
+        "selectores": {
+            "partido": ".match-row, .Rt",
+            "equipo_local": ".team-home, .Tl",
+            "equipo_visitante": ".team-away, .Tr",
+            "hora": ".time, .Ti",
+            "liga": ".league-name, .Lh",
+            "canal": ".broadcast"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        },
+        "timeout": 15
+    },
+    
+    "fotmob.com": {
+        "selectores": {
+            "partido": ".match-list-item, .MatchCardStyled",
+            "equipo_local": ".home-team, .MatchParticipant:first-child",
+            "equipo_visitante": ".away-team, .MatchParticipant:last-child",
+            "hora": ".match-time, .MatchTimeStyled",
+            "liga": ".league-title, .LeagueHeaderTitle",
+            "canal": ".tv-station"
+        },
+        "headers": {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"
+        },
+        "timeout": 15
     }
 }
 
